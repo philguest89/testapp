@@ -1,0 +1,37 @@
+<% include partials/header %>
+
+<h1> Show Student: <%= student.name %>'s Profile</h1>
+
+<li>Name: <%=student.name%></li>
+<li>Grade: <%= student.grade%></li>
+
+<p>
+<a href="/students/<%= student._id %>/edit">Edit Student</a>
+</p>
+
+<form action="/students/<%= student._id %>?_method=DELETE" method="POST">
+<button>Delete Student</button>
+</form>
+
+<p>
+<a href="/students/<%= student._id %>/comments/new">Add Comment</a>
+</p>
+
+
+
+
+<table>
+<% student.comments.forEach(function(comment){ %>
+	<tr> 
+		<td>
+			<p><%= comment.text %></p>
+			<p>By: <%= comment.author.username %></p>
+			<p><form action="/students/<%= student._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+			<button>Delete Comment</button></p>
+			</form>
+		</td>
+	</tr>
+<% }) %>
+</table>
+
+<% include partials/footer%>

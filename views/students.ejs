@@ -1,0 +1,20 @@
+<% include partials/header %>
+
+<h1>List of Students</h1>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Grade</th>
+		<th>Link</th>
+	</tr>
+<% students.forEach(function(students){ %>
+	<tr>
+		<td><%=students.name%></td>
+		<td><%= students.grade%></td>
+		<td><a href="/students/<%= students._id %>">View Student</a></td>
+	</tr>
+<% }); %> 
+</table>
+
+<% include partials/footer %>

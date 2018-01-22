@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Teacher System</title>
+ 		<link rel="stylesheet" href="\stylesheets\app.css">
+ 		<!--<link rel="stylesheet" href="\stylesheets\bootstrap.css">-->
+ 	</head>
+ 	<body>
+ 		<nav>
+	 		<div>
+	 			<div>
+		 			<a href="/">Home</a>
+		 		</div>
+		 		<div>
+		 			<ul>
+		 				<% if(!currentUser){ %>
+		 				<li><a href="/teacher">Login</a></li>
+		 				<li><a href="/teacher/new">Register</a></li>
+		 				<% }else{ %>
+		 				<li>Signed in as <%= currentUser.username %></li>
+		 				<li><a href="/students">List of Students</a></li>
+		 				<li><a href="/students/new">Add a Student</a></li>
+		 				<li><a href="/teacher/logout">Logout</a></li>
+		 				<% } %>
+		 			</ul>
+		 		</div>
+		 	</div>
+		 </nav>
+
+<% if(error && error.length > 0){ %>
+	<h3 class="error"><%= error %></h3>
+<% } %>
+
+<% if(success && success.length > 0){ %>
+	<h3 class="success"><%= success %></h3>
+<% } %>
+

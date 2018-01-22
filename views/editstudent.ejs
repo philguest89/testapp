@@ -1,0 +1,13 @@
+<% include partials/header %>
+
+<h1>Edit Student: <%= student.name %></h1>
+
+<form action="/students/<%= student._id %>?_method=PUT" method="POST">
+	<input type="text" name="student[name]" value=<%= student.name %>>
+	<input type="text" name="student[grade]" value=<%= student.grade %>>
+	<button>Edit Student</button>
+</form>
+
+<p><a href="/students/<%= student._id %>">View Student</a></p>
+
+<% include partials/footer %>
